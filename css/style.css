@@ -1,3 +1,7 @@
+html {
+    background-color: #282828;
+}
+
 body {
     width: 1440px;
     margin: 0 auto;
@@ -7,7 +11,9 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #283136;
-    font-weight: 400;  
+    font-weight: 400;
+
+    background-color: #ffffff;
 }
 
 a {
@@ -30,7 +36,6 @@ a {
     width: 1160px;
     margin: 0 auto;
     padding: 0;
-    
 }
 
 .main-navigation {
@@ -68,13 +73,23 @@ a {
     list-style: none;
 }
 
+.current {
+    border-bottom: 3px solid #fb565a;
+}
+
 .cart {
+    display: flex;
     width: 160px;
     padding-top: 60px;
     
     list-style: none;
     
     text-align: right;
+}
+
+.cart::before {
+    content: url("../img/cart-icon.svg");
+    margin-right: 25px;
 }
 
 .site-navigation a {
@@ -161,7 +176,7 @@ a {
 }
 
 
-.slide .btn {
+.btn {
     display: block;
     width: 240px;
     padding: 13px 0;
@@ -178,8 +193,19 @@ a {
     border-radius: 3px;
 }
 
+.slide .btn:hover {
+    background-color: #e74246;
+}
+
+.slide .btn:active {
+    color: rgba(255, 255, 255, 0.3);
+    background-color: #d7373b;
+
+    box-shadow: 0 3px 0 #c13135 inset;
+}
+
 .slide:nth-child(1) {
-    background-image: url("../img/slide1.png");
+    background: url("../img/slide1.png");
     background-repeat: no-repeat;
     background-position: 100% 10px;
 }
@@ -225,7 +251,7 @@ a {
     margin-bottom: 93px;
 }
 .products h2 {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     
     font-size: 24px;
     line-height: 30px;
@@ -242,6 +268,8 @@ a {
     
     text-transform: uppercase;    
     color: #fff;
+
+    border-radius: 3px;
 }
 
 .products:nth-of-type(1) a {
@@ -256,6 +284,8 @@ a {
     color: rgba(255, 255, 255, 0.3);
     
     background-color: #d7373b;
+
+    box-shadow: 0 3px 0 #c13135 inset;
 }
 
 .products:nth-of-type(2) a {
@@ -270,6 +300,8 @@ a {
     color: rgba(255, 255, 255, 0.3);
     
     background-color: #00aa62;
+
+    box-shadow: 0 3px 0 #009958 inset;
 }
 
 .products:nth-of-type(3) a {
@@ -284,6 +316,8 @@ a {
     color: rgba(255, 255, 255, 0.3);
     
     background-color: #e5a722;
+
+    box-shadow: 0 3px 0 #ce961f inset;
 }
 
 
@@ -443,7 +477,19 @@ a {
     background-color: #fb565a;
     
     border: none;
-} 
+    border-radius: 3px;
+}
+
+.contact-us:hover {
+    background-color: #e74246;
+}
+
+.contact-us:active {
+    color: rgba(255, 255, 255, 0.3);
+    background-color: #d7373b;
+
+    box-shadow: 0 3px 0 #c13135 inset;
+}
 
 .footer-wrapper {
     display: flex;
@@ -472,6 +518,16 @@ a {
     border-radius: 50%
 }
 
+.social-button:hover {
+    background-color: #e74246;
+}
+
+.social-button:active {
+    background-color: #d7373b;
+
+    box-shadow: 0 3px 0 #c13135 inset;
+}
+
 .footer-tagline {
     margin-left: 128px;
     
@@ -485,11 +541,21 @@ a {
 }
 
 .modal {
-    background-color: #fff;  
+    display: none;
+    position: fixed;
+    left: 380px;
+    bottom: 120px;
+    width: 960px;
+
+    background-color: #fff;
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
 .modal fieldset {
     border: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 55px;
 }
 
 .modal legend {
@@ -497,15 +563,81 @@ a {
     font-size: 45px;
     line-height: 45px;
     font-weight: 500;
+
+    margin-bottom: 20px;
 }
 
-.modal .feedback-item label{
+.modal-close {
+    position: absolute;
+    right: 110px;
+    top: 60px;
+    width: 22px;
+    height: 22px;
+
+    font-size: 0;
+
+    background-color: transparent;
+    border: 0;
+
+    cursor: pointer;
+}
+
+.modal-close::before,
+.modal-close::after {
+    content: "";
+
+    position: absolute;
+    top: 10px;
+    left: 3px;
+
+    width: 19px;
+    height: 3px;
+
+    background-color: red;
+}
+
+.modal-close::before {
+    transform: rotate(45deg);
+}
+
+.modal-close::after {
+    transform: rotate(-45deg);
+}
+
+.feedback-form {
+    width: 760px;
+    margin: 0 auto;
+}
+
+.feedback-item {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.feedback-item label{
     font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.feedback-item input {
+    padding: 10px;
+    width: 350px;
+
+    border-radius: 3px;
+}
+
+.feedback-item textarea {
+    width: 725px;
+    padding: 10px 10px 60px 10px;
+
+    border-radius: 3px;
 }
 
 .feedback-item input,
 .feedback-item textarea {
     font: inherit;
+
     
     border: 2px solid #d7dcde;
 }
@@ -548,4 +680,6 @@ a {
     color: rgba(255, 255, 255, 0.3);
     
     background-color: #d7373b;
+
+    box-shadow: 0 3px 0 #c13135 inset;
 }
